@@ -8,7 +8,7 @@ package autonoma.biblioteca.main;
  *
  * @author juane
  */
-public class Biblioteca {
+public class BibliotecaApp {
 
     /**
      * @param args the command line arguments
