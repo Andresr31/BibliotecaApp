@@ -1,0 +1,98 @@
+[33mcommit 25de13551817e2e889693ffd54465676bff49b7a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: d21857d 195b69e
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Sat Mar 15 11:34:49 2025 -0500
+
+    [JuanSebastianLopez15] cambios buscar libro
+
+[33mcommit d21857de042920092d90d73056641bb3ed653ca0[m
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Sat Mar 15 11:32:16 2025 -0500
+
+    [JuanSebastianLopezGuzman15] buscar libro
+
+[33mcommit 195b69e44e7109b29e5744973dbb611b73c75e19[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Sat Mar 15 11:02:33 2025 -0500
+
+    Proceso 1 de la ventana principal (Botones con eventos de entrada y salida del mouse)
+
+[33mcommit 8ad8dc3f5119754f79929ce9347d2c122a433e94[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Sat Mar 15 10:23:31 2025 -0500
+
+    Inicio de la ventana Principal
+
+[33mcommit 64dd998ed53d0d7833c0b0e9bd763528ebe232f6[m
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Sat Mar 15 09:16:34 2025 -0500
+
+    [JuanSebastianLopez15] se agrego la clase biblioteca
+
+[33mcommit eec725c75c9799ce287b517fa0e3450edf98bb86[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Sat Mar 15 08:49:05 2025 -0500
+
+    Paquete de interfaz grafica
+
+[33mcommit 5f81faf1d5db98dd09b138eb726f78bcbe7f59ee[m
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Sat Mar 15 08:46:40 2025 -0500
+
+    [JuanSebastianLopez15] paquete .images
+
+[33mcommit 7658e830309b18a1b27db079110c46bdcf424118[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Sat Mar 15 08:29:34 2025 -0500
+
+    Clase main
+
+[33mcommit 517e318acc8a2a218699e848b3b5ac180026d3f2[m
+Merge: e075c30 65720e9
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Wed Mar 12 17:53:13 2025 -0500
+
+    Merge branch 'main' of https://github.com/Andresr31/BibliotecaApp
+
+[33mcommit e075c304ccbe81bac6b542ec430c31252cadbba5[m
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Wed Mar 12 17:52:42 2025 -0500
+
+    Clase Autor
+
+[33mcommit 65720e94c52c081a76258e99f91434e46bb52f86[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Wed Mar 12 17:52:35 2025 -0500
+
+    Clase libro si es
+
+[33mcommit a8b17c0ed23b76e7eb8349752be264bcaf63598d[m
+Merge: 501dd67 e063e04
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Wed Mar 12 17:45:16 2025 -0500
+
+    Merge branch 'main' of https://github.com/Andresr31/BibliotecaApp
+
+[33mcommit 501dd67ad2898ecec442143c67e24b604bc6d6a1[m
+Author: Juan Sebastian Lopez Guzman <juanse150906@gmail.com>
+Date:   Wed Mar 12 17:42:48 2025 -0500
+
+    Clase autor creada
+
+[33mcommit e063e042567007fdbfba12eb4176170e4cf8f416[m
+Author: Juan Hernandez <juanestebanhernandezmartinez@gmail.com>
+Date:   Wed Mar 12 17:42:47 2025 -0500
+
+    Clase libro
+
+[33mcommit 93df8ca0a073c01c1c04ef683f156ae08a223887[m
+Author: Carlos Andrés Rojas Parra <carlos.andres.1031@gmail.com>
+Date:   Wed Mar 12 17:01:49 2025 -0500
+
+    Se agrega la clase Persona
+
+[33mcommit 1cbfeb954317fe9f2fe9be73fa9659fb8983ac12[m
+Author: Carlos Andrés Rojas Parra <carlos.andres.1031@gmail.com>
+Date:   Mon Mar 10 17:33:09 2025 -0500
+
+    First commit
