@@ -4,6 +4,8 @@
  */
 package autonoma.biblioteca.main;
 
+import autonoma.biblioteca.views.PaginaPrincipal;
+
 /**
  *
  * @author juane
@@ -14,7 +16,8 @@ public class BibliotecaApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        PaginaPrincipal pagina = new PaginaPrincipal();
+        pagina.setVisible(true);
     }
     
 }
