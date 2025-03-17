@@ -6,6 +6,7 @@ package autonoma.biblioteca.views;
 
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +31,12 @@ public class AgregarLibro extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        try{
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/biblioteca/images/logo.png")).getImage());
+        }
+        catch(Exception e){
+            
+        }
         this.biblioteca = biblioteca;
         this.paginaPrincipal = principal;
     }

@@ -191,6 +191,14 @@ public class MostrarLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        int fila = this.tableMostrarLibros.getSelectedRow();
+        if(fila>=0){
+            Libro l = this.arrLibros.get(fila);
+            ActualizarLibro ventanaActualizar = new ActualizarLibro(this.ventanaPrincipal,true,biblioteca,this,l);
+            ventanaActualizar.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione el libro para eliminar");
+        }
         
     }//GEN-LAST:event_btnActualizarActionPerformed
 
@@ -199,7 +207,20 @@ public class MostrarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
+        int fila = this.tableMostrarLibros.getSelectedRow();
+        if(fila>=0){
+            Libro l = this.arrLibros.get(fila);
+            int option = JOptionPane.showConfirmDialog(this, "Desea eliminar el libro "+l.getTitulo()+" de forma permanente?");
+            if(option==0){
+                this.biblioteca.eliminarLibro(l.getId());
+                this.arrLibros=this.biblioteca.mostrarLibrosArr();
+                this.llenarTabla();
+                JOptionPane.showMessageDialog(this, "El libro "+l.getTitulo()+" fue eliminado de forma exitosa");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione el libro para eliminar");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     public void llenarTabla(){
