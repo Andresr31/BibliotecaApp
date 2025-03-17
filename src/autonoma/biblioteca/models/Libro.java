@@ -29,14 +29,12 @@ public class Libro {
     
     /////////////////////////////////////////////////////////////////////////
     /////////////// metodo constructor
-    public Libro(long id, String titulo){
-        this.id = id;
-        this.titulo = titulo;
+
+    public Libro() {
     }
-    
+
     ////////////////////////////////////////////////////////////////////////
     ////////////// metodo de acceso
-
     public long getId() {
         return id;
     }

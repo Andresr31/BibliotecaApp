@@ -4,6 +4,8 @@
  */
 package autonoma.biblioteca.main;
 
+import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
 import autonoma.biblioteca.views.PaginaPrincipal;
 
 /**
@@ -16,7 +18,9 @@ public class BibliotecaApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PaginaPrincipal pagina = new PaginaPrincipal();
+        Biblioteca biblioteca = new Biblioteca();
+        Libro libro= new Libro();
+        PaginaPrincipal pagina = new PaginaPrincipal(biblioteca, libro);
         pagina.setVisible(true);
     }
     

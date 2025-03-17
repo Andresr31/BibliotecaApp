@@ -4,6 +4,8 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -16,8 +18,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form PaginaPrincipal
      */
-    public PaginaPrincipal() {
+    private Biblioteca biblioteca;
+    private Libro libro;
+    public PaginaPrincipal(Biblioteca biblioteca, Libro libro) {
         initComponents();
+        this.biblioteca=biblioteca;
+        this.libro=libro;
     }
 
     /**
@@ -155,6 +161,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         btnBuscarLibro.setBackground(new java.awt.Color(99, 178, 250));
         btnBuscarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarLibroMouseEntered(evt);
             }
@@ -459,6 +468,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         this.mouseExited(btnSalir);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnBuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibroMouseClicked
+        BuscarLibro ventanaBuscar = new BuscarLibro(this, true, this.biblioteca,this, this.libro);
+        ventanaBuscar.setVisible(true);
+    }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
     private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(56,99,139));
