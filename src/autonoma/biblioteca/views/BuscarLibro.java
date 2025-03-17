@@ -44,7 +44,7 @@ public class BuscarLibro extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        btnAgregar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         btnCancelar1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtNombreLibro = new javax.swing.JTextField();
@@ -55,10 +55,10 @@ public class BuscarLibro extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(99, 178, 250));
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class BuscarLibro extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(31, 31, 31)
                         .addComponent(txtNombreLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -98,7 +98,7 @@ public class BuscarLibro extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(txtNombreLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -148,7 +148,7 @@ public class BuscarLibro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String nombre = this.txtNombreLibro.getText();
         Libro l = this.biblioteca.buscarLibro(nombre);
         if (l == null){
@@ -157,7 +157,7 @@ public class BuscarLibro extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "El libro fue encontrado: \n\n"+"Libro "+l.getId()+": "+l.getTitulo());
         }
 
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
         this.dispose();
@@ -166,7 +166,7 @@ public class BuscarLibro extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
