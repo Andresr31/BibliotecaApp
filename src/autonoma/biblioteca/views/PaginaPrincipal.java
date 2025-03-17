@@ -4,6 +4,7 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Biblioteca;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -12,12 +13,13 @@ import javax.swing.JPanel;
  * @author juane
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form PaginaPrincipal
      */
     public PaginaPrincipal() {
         initComponents();
+        
     }
 
     /**
@@ -83,6 +85,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         btnAgregarLibro.setBackground(new java.awt.Color(99, 178, 250));
         btnAgregarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAgregarLibroMouseEntered(evt);
             }
@@ -306,6 +311,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         btnSalir.setBackground(new java.awt.Color(99, 178, 250));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSalirMouseEntered(evt);
             }
@@ -459,6 +467,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         this.mouseExited(btnSalir);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnAgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibroMouseClicked
+        
+    }//GEN-LAST:event_btnAgregarLibroMouseClicked
 
     private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(56,99,139));
