@@ -18,7 +18,7 @@ public class Biblioteca {
         this.libros = new ArrayList<>();
     }
 
-    // Métodos
+    // Métodos        
     public String mostrarLibros() {
         if (libros.isEmpty()) {
             return "No hay libros en la biblioteca.";
@@ -64,6 +64,9 @@ public class Biblioteca {
         ArrayList<Libro> librosOrdenados = new ArrayList<>(libros);
         librosOrdenados.sort((l1, l2) -> l1.getTitulo().compareToIgnoreCase(l2.getTitulo()));
         return librosOrdenados;
+    }
+    public ArrayList<Libro> mostrarLibrosArr() {
+        return this.libros;
     }
 }
 

@@ -23,7 +23,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private Libro libro;
     public PaginaPrincipal(Biblioteca biblioteca, Libro libro) {
         initComponents();
-
+        this.setLocationRelativeTo(null);
         this.biblioteca=biblioteca;
         this.libro=libro;
 
@@ -133,6 +133,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         btnMostrarLibro.setBackground(new java.awt.Color(99, 178, 250));
         btnMostrarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMostrarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMostrarLibroMouseEntered(evt);
             }
@@ -491,8 +494,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnAgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibroMouseClicked
-        
+        AgregarLibro agregarVentana = new AgregarLibro(this, true, this.biblioteca,this);
+        agregarVentana.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroMouseClicked
+
+    private void btnMostrarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseClicked
+        MostrarLibro ventanaMostrar = new MostrarLibro(this,true,this.biblioteca,this,this.libro);
+        ventanaMostrar.setVisible(true);
+    }//GEN-LAST:event_btnMostrarLibroMouseClicked
 
 
     private void mouseEntered(JPanel panel){

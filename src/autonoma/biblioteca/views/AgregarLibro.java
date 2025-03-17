@@ -29,7 +29,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca,PaginaPrincipal principal) {
         super(parent, modal);
         initComponents();
-        
+        this.setLocationRelativeTo(null);
         this.biblioteca = biblioteca;
         this.paginaPrincipal = principal;
     }
@@ -173,23 +173,27 @@ public class AgregarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
-                try{
-          long ID = Long.parseLong(this.txtID.getText());
-          String titulo = this.txtTitulo.getText();
-          Libro libro = new Libro(ID, titulo);
-          this.biblioteca.agregarLibro(libro);
-          if(this.biblioteca.agregarLibro(libro)){
-             JOptionPane.showMessageDialog(this, "El libro "+titulo+" ha sido exitosamente agregado.");
-             dispose();
-          }
-          else{
-             JOptionPane.showMessageDialog(this, "Ha ocurrido un error.");
-             dispose();
-          }
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Porfavor ingrese una variable valida.");
-            this.txtID.setText("");
-        }   
+        try {
+               
+                long ID = Long.parseLong(this.txtID.getText());
+                String titulo = this.txtTitulo.getText();
+
+               
+                Libro libro = new Libro();
+                libro.setId(ID);          
+                libro.setTitulo(titulo);  
+
+                
+                if (this.biblioteca.agregarLibro(libro)) {
+                    JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
+                    dispose(); 
+                } else {
+                    JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido (número).");
+                this.txtID.setText(""); 
+            }
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
    

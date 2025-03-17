@@ -4,6 +4,8 @@
  */
 package autonoma.biblioteca.models;
 
+import java.util.ArrayList;
+
 /**
  * 
  * Modelo que permite representar un libro
@@ -16,6 +18,7 @@ public class Libro {
     
     /////////////////////////////////////////////////////////////////////////
     ///// atributos
+    private Biblioteca biblioteca;
     
     /*
     * id del libro
