@@ -37,9 +37,9 @@ public class Biblioteca {
         return false;
     }
 
-    public Libro buscarLibro(long id) {
+    public Libro buscarLibro(String nombre) {
         for (Libro libro : libros) {
-            if (libro.getId() == id) {
+            if (libro.getTitulo().equals(nombre)) {
                 return libro;
             }
         }
