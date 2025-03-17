@@ -55,6 +55,9 @@ public class BuscarLibro extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(99, 178, 250));
 
+        btnBuscar.setBackground(new java.awt.Color(56, 99, 139));
+        btnBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,9 @@ public class BuscarLibro extends javax.swing.JDialog {
             }
         });
 
+        btnCancelar1.setBackground(new java.awt.Color(56, 99, 139));
+        btnCancelar1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnCancelar1.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar1.setText("Cancelar");
         btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +75,8 @@ public class BuscarLibro extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre del libro");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -160,7 +168,7 @@ public class BuscarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
 

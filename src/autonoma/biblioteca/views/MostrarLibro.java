@@ -86,6 +86,9 @@ public class MostrarLibro extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(99, 178, 250));
 
+        btnActualizar.setBackground(new java.awt.Color(56, 99, 139));
+        btnActualizar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +96,9 @@ public class MostrarLibro extends javax.swing.JDialog {
             }
         });
 
+        btnCancelar1.setBackground(new java.awt.Color(56, 99, 139));
+        btnCancelar1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnCancelar1.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar1.setText("Cancelar");
         btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +106,9 @@ public class MostrarLibro extends javax.swing.JDialog {
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(56, 99, 139));
+        btnEliminar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +192,7 @@ public class MostrarLibro extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
