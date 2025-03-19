@@ -11,6 +11,7 @@ import autonoma.biblioteca.models.Libro;
 import autonoma.biblioteca.models.Persona;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +30,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private ArrayList<Persona> personas;
     public PaginaPrincipal(Biblioteca biblioteca, Libro libro) {
         initComponents();
+        try{
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/biblioteca/images/logo.png")).getImage());
+        }
+        catch(Exception e){
+            
+        }
         this.setLocationRelativeTo(null);
         this.biblioteca=biblioteca;
         this.libro=libro;

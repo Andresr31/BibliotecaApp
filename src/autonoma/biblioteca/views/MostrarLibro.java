@@ -7,6 +7,8 @@ package autonoma.biblioteca.views;
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -233,6 +235,7 @@ public class MostrarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     public void llenarTabla(){
+        Collections.sort(this.arrLibros, Comparator.comparing(Libro::getTitulo));
         DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"Id", "Titulo"}, this.arrLibros.size());
         this.tableMostrarLibros.setModel(modelDefault);
         

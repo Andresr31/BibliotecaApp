@@ -117,6 +117,9 @@ public class AgregarLibro extends javax.swing.JDialog {
         lblAutor.setForeground(new java.awt.Color(255, 255, 255));
         lblAutor.setText("Datos del autor");
 
+        btnVentanaAutor.setBackground(new java.awt.Color(56, 99, 139));
+        btnVentanaAutor.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        btnVentanaAutor.setForeground(new java.awt.Color(255, 255, 255));
         btnVentanaAutor.setText("Ir a la ventana y agregar datos");
         btnVentanaAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +152,7 @@ public class AgregarLibro extends javax.swing.JDialog {
                         .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVentanaAutor)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarLibro)
@@ -168,7 +171,7 @@ public class AgregarLibro extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAutor)
                     .addComponent(btnVentanaAutor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -199,29 +202,38 @@ public class AgregarLibro extends javax.swing.JDialog {
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         try {
-                String titulo = this.txtTitulo.getText();
-
-
-                Libro libro = new Libro();
-                libro.setId(ID);          
-                libro.setTitulo(titulo);  
-
-
-                if (this.biblioteca.agregarLibro(libro)) {
-                    JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
-                    ID++;
-                    dispose(); 
-                } else {
-                    JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
-                }
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "Error en el formato de entrada.");
+            String titulo = this.txtTitulo.getText().trim();
+            
+            if (titulo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El título del libro no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (autorSeleccionado == null) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un autor antes de agregar un libro.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Libro libro = new Libro();
+            libro.setId(ID);          
+            libro.setTitulo(titulo);
+            libro.setAutor(autorSeleccionado);
+            
+            if (this.biblioteca.agregarLibro(libro)) {
+                JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
+                ID++;
+                dispose(); 
+            } else {
+                JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error en el formato de entrada.");
         }
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnVentanaAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentanaAutorActionPerformed
 
-        AgregarAutor ventanaAutor = new AgregarAutor(this.paginaPrincipal, true,this.biblioteca,this,this.libros,this.autores,this.personas);
+        AgregarAutor ventanaAutor = new AgregarAutor(this.paginaPrincipal, true, this.biblioteca, this, this.libros, this.autores, this.personas);
         ventanaAutor.setVisible(true);
         this.autorSeleccionado = ventanaAutor.getAutorCreado();
         if (autorSeleccionado != null) {
