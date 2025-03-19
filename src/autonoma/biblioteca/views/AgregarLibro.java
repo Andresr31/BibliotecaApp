@@ -4,8 +4,11 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
+import autonoma.biblioteca.models.Persona;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -25,9 +28,13 @@ public class AgregarLibro extends javax.swing.JDialog {
     
     private Biblioteca biblioteca;
     private PaginaPrincipal paginaPrincipal;
+    private ArrayList<Libro> libros;
+    private ArrayList<Autor> autores;
+    private ArrayList<Persona> personas;
+    private Autor autorSeleccionado;
     
     
-    public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca,PaginaPrincipal principal) {
+    public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca,PaginaPrincipal principal,ArrayList<Libro> libros,ArrayList<Autor> autores,ArrayList<Persona> personas) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -39,6 +46,9 @@ public class AgregarLibro extends javax.swing.JDialog {
         }
         this.biblioteca = biblioteca;
         this.paginaPrincipal = principal;
+        this.autores=autores;
+        this.personas=personas;
+        this.libros= libros;
     }
 
     /**
@@ -53,15 +63,14 @@ public class AgregarLibro extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btnAgregarLibro = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
+        lblAutor = new javax.swing.JLabel();
+        btnVentanaAutor = new javax.swing.JButton();
+        btnAgregarLibro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(450, 315));
 
         jPanel1.setBackground(new java.awt.Color(56, 99, 139));
 
@@ -88,20 +97,6 @@ public class AgregarLibro extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(99, 178, 250));
 
-        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID");
-
-        btnAgregarLibro.setBackground(new java.awt.Color(56, 99, 139));
-        btnAgregarLibro.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        btnAgregarLibro.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarLibro.setText("Agregar Libro");
-        btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarLibroActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Titulo");
@@ -116,45 +111,66 @@ public class AgregarLibro extends javax.swing.JDialog {
             }
         });
 
+        lblAutor.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutor.setText("Datos del autor");
+
+        btnVentanaAutor.setText("Ir a la ventana y agregar datos");
+        btnVentanaAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentanaAutorActionPerformed(evt);
+            }
+        });
+
+        btnAgregarLibro.setBackground(new java.awt.Color(56, 99, 139));
+        btnAgregarLibro.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        btnAgregarLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarLibro.setText("Agregar Libro");
+        btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarLibroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(71, 71, 71)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(39, 39, 39)
-                        .addComponent(txtID)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVentanaAutor)))
+                .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarLibro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGap(71, 71, 71)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(66, 66, 66))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAutor)
+                    .addComponent(btnVentanaAutor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,40 +196,42 @@ public class AgregarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
-        try {
-               
-                long ID = Long.parseLong(this.txtID.getText());
-                String titulo = this.txtTitulo.getText();
-
-               
-                Libro libro = new Libro();
-                libro.setId(ID);          
-                libro.setTitulo(titulo);  
-
-                
-                if (this.biblioteca.agregarLibro(libro)) {
-                    JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
-                    dispose(); 
-                } else {
-                    JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido (número).");
-                this.txtID.setText(""); 
-            }
+        if (autorSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Debe agregar un autor primero.");
+            return;
+        }
+        String titulo = this.txtTitulo.getText();
+        Libro libro = new Libro();
+        libro.setTitulo(titulo);
+        libro.setAutor(autorSeleccionado);
+        if (biblioteca.agregarLibro(libro)) {
+            JOptionPane.showMessageDialog(this, "Libro agregado exitosamente!");
+            dispose();
+        }
+        
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
+
+    private void btnVentanaAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentanaAutorActionPerformed
+
+        AgregarAutor ventanaAutor = new AgregarAutor(this.paginaPrincipal, true,this.biblioteca,this,this.libros,this.autores,this.personas);
+        ventanaAutor.setVisible(true);
+        this.autorSeleccionado = ventanaAutor.getAutorCreado();
+        if (autorSeleccionado != null) {
+            lblAutor.setText("Autor: " + autorSeleccionado.getEditorial());
+        }
+    }//GEN-LAST:event_btnVentanaAutorActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnVentanaAutor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JLabel lblAutor;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,10 +12,14 @@ import autonoma.biblioteca.models.Libro;
 
 public class Biblioteca {
     private ArrayList<Libro> libros;
-
+    private ArrayList<Autor> autores;
+    private ArrayList<Persona> personas;
+    
     // Constructor
     public Biblioteca() {
         this.libros = new ArrayList<>();
+        this.autores = new ArrayList<>();
+        this.personas = new ArrayList<>();
     }
 
     // Métodos        
@@ -36,7 +40,20 @@ public class Biblioteca {
         }
         return false;
     }
-
+    public boolean agregarAutor(Autor autor) {
+        if (autor != null && !autores.contains(autor)) {
+            return autores.add(autor);
+        }
+        return false;
+    }
+    
+    public boolean agregarPersona(Persona persona) {
+        if (persona != null && !personas.contains(persona)) {
+            return personas.add(persona);
+        }
+        return false;
+    }
+    
     public Libro buscarLibro(String nombre) {
         for (Libro libro : libros) {
             if (libro.getTitulo().equals(nombre)) {

@@ -4,10 +4,13 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
 import autonoma.biblioteca.models.Libro;
+import autonoma.biblioteca.models.Persona;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -21,11 +24,17 @@ public class PaginaPrincipal extends javax.swing.JFrame {
      */
     private Biblioteca biblioteca;
     private Libro libro;
+    private ArrayList<Libro> libros;
+    private ArrayList<Autor> autores;
+    private ArrayList<Persona> personas;
     public PaginaPrincipal(Biblioteca biblioteca, Libro libro) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.biblioteca=biblioteca;
         this.libro=libro;
+        this.autores=autores;
+        this.personas=personas;
+        this.libros= libros;
 
         
 
@@ -387,7 +396,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnAgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibroMouseClicked
-        AgregarLibro agregarVentana = new AgregarLibro(this, true, this.biblioteca,this);
+        AgregarLibro agregarVentana = new AgregarLibro(this, true, this.biblioteca, this, this.libros, this.autores, this.personas);
         agregarVentana.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroMouseClicked
 

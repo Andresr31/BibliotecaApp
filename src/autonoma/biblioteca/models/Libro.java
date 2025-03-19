@@ -28,6 +28,7 @@ public class Libro {
     * Titulo del libro
     */
     private String titulo;
+    private Autor autor;
     
     
     /////////////////////////////////////////////////////////////////////////
@@ -44,6 +45,13 @@ public class Libro {
 
     public void setId(long id) {
         this.id = id;
+    }
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
 
     public String getTitulo() {
