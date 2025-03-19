@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author juane
+ * @author Juan Sebastian Lopez G.
  */
 public class ActualizarLibro extends javax.swing.JDialog {
 
@@ -35,7 +35,8 @@ public class ActualizarLibro extends javax.swing.JDialog {
         this.libro=libro;
         
         this.txtTitulo.setText(this.libro.getTitulo());
-        this.txtID.setText(this.libro.getId()+"");
+        this.txtID.setText(String.valueOf(this.libro.getId()));
+        this.txtID.setEditable(false);
     }
 
     /**
@@ -171,23 +172,24 @@ public class ActualizarLibro extends javax.swing.JDialog {
 
     private void brnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnActualizarActionPerformed
         try {
-
-            long ID = Long.parseLong(this.txtID.getText());
-            String titulo = this.txtTitulo.getText();
-
+            String titulo = this.txtTitulo.getText().trim();
+            
+            if (titulo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "¡El título no puede estar vacío!");
+                return;
+            }
             this.libro.setTitulo(titulo);
-            this.libro.setId(ID);
-
-            this.biblioteca.actualizarLibro(this.libro.getId(), this.libro);
-                JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido actualizado exitosamente.");
+            boolean exito = this.biblioteca.actualizarLibro(this.libro.getId(), this.libro);    
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Libro actualizado exitosamente");
                 this.ventanaMostrarLibro.llenarTabla();
                 this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error: No se pudo actualizar el libro");
+            }
             
-                JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido (número).");
-            this.txtID.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
         }
     }//GEN-LAST:event_brnActualizarActionPerformed
 

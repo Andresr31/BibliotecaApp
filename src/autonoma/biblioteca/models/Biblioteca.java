@@ -86,7 +86,7 @@ public class Biblioteca {
         return this.libros;
     }
     public long obtenerUltimoID() {
-    if (libros.isEmpty()) {  // Si no hay libros, empezamos desde 1
+    if (libros.isEmpty()) { 
         return 0;
     }
     
@@ -97,7 +97,7 @@ public class Biblioteca {
         }
     }
     return maxID;
-}
+}  
 }
 
 

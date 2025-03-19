@@ -32,6 +32,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     private ArrayList<Autor> autores;
     private ArrayList<Persona> personas;
     private Autor autorSeleccionado;
+    private long ID =1;
     
     
     public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca,PaginaPrincipal principal,ArrayList<Libro> libros,ArrayList<Autor> autores,ArrayList<Persona> personas) {
@@ -42,13 +43,14 @@ public class AgregarLibro extends javax.swing.JDialog {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/biblioteca/images/logo.png")).getImage());
         }
         catch(Exception e){
-            
+            e.printStackTrace();
         }
         this.biblioteca = biblioteca;
         this.paginaPrincipal = principal;
         this.autores=autores;
         this.personas=personas;
         this.libros= libros;
+        this.ID=this.biblioteca.obtenerUltimoID()+1;
     }
 
     /**
@@ -196,19 +198,25 @@ public class AgregarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
-        if (autorSeleccionado == null) {
-            JOptionPane.showMessageDialog(this, "Debe agregar un autor primero.");
-            return;
+        try {
+                String titulo = this.txtTitulo.getText();
+
+
+                Libro libro = new Libro();
+                libro.setId(ID);          
+                libro.setTitulo(titulo);  
+
+
+                if (this.biblioteca.agregarLibro(libro)) {
+                    JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
+                    ID++;
+                    dispose(); 
+                } else {
+                    JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
+                }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Error en el formato de entrada.");
         }
-        String titulo = this.txtTitulo.getText();
-        Libro libro = new Libro();
-        libro.setTitulo(titulo);
-        libro.setAutor(autorSeleccionado);
-        if (biblioteca.agregarLibro(libro)) {
-            JOptionPane.showMessageDialog(this, "Libro agregado exitosamente!");
-            dispose();
-        }
-        
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnVentanaAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentanaAutorActionPerformed
