@@ -25,6 +25,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     
     private Biblioteca biblioteca;
     private PaginaPrincipal paginaPrincipal;
+    private long ID = 1;
     
     
     public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca,PaginaPrincipal principal) {
@@ -35,10 +36,11 @@ public class AgregarLibro extends javax.swing.JDialog {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/biblioteca/images/logo.png")).getImage());
         }
         catch(Exception e){
-            
+            e.printStackTrace();
         }
         this.biblioteca = biblioteca;
         this.paginaPrincipal = principal;
+        this.ID = this.biblioteca.obtenerUltimoID() + 1;
     }
 
     /**
@@ -53,15 +55,12 @@ public class AgregarLibro extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         btnAgregarLibro = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(450, 315));
 
         jPanel1.setBackground(new java.awt.Color(56, 99, 139));
 
@@ -87,10 +86,6 @@ public class AgregarLibro extends javax.swing.JDialog {
         );
 
         jPanel2.setBackground(new java.awt.Color(99, 178, 250));
-
-        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID");
 
         btnAgregarLibro.setBackground(new java.awt.Color(56, 99, 139));
         btnAgregarLibro.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
@@ -121,40 +116,30 @@ public class AgregarLibro extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(39, 39, 39)
-                        .addComponent(txtID)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(63, 63, 63)
                 .addComponent(btnAgregarLibro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(57, 57, 57))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(78, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                    .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,8 +166,6 @@ public class AgregarLibro extends javax.swing.JDialog {
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         try {
-               
-                long ID = Long.parseLong(this.txtID.getText());
                 String titulo = this.txtTitulo.getText();
 
                
@@ -193,13 +176,13 @@ public class AgregarLibro extends javax.swing.JDialog {
                 
                 if (this.biblioteca.agregarLibro(libro)) {
                     JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente.");
+                    ID++;
                     dispose(); 
                 } else {
                     JOptionPane.showMessageDialog(this, "El libro ya existe o no se pudo agregar.");
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido (número).");
-                this.txtID.setText(""); 
+                JOptionPane.showMessageDialog(this, "Error en el formato de entrada.");
             }
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
@@ -209,11 +192,9 @@ public class AgregarLibro extends javax.swing.JDialog {
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
