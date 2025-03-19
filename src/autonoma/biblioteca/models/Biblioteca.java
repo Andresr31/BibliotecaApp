@@ -85,6 +85,19 @@ public class Biblioteca {
     public ArrayList<Libro> mostrarLibrosArr() {
         return this.libros;
     }
+    public long obtenerUltimoID() {
+    if (libros.isEmpty()) {  // Si no hay libros, empezamos desde 1
+        return 0;
+    }
+    
+    long maxID = 0;
+    for (Libro libro : libros) {
+        if (libro.getId() > maxID) {
+            maxID = libro.getId();
+        }
+    }
+    return maxID;
+}
 }
 
 
